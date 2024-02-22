@@ -1,0 +1,52 @@
+html {
+    font-family: 'Helvetica neue', Arial, 'sans serif';
+}
+
+hr {
+    color: black;
+}
+
+.overlay1 {
+    padding: 5px;
+    border: solid black;
+    border-width: 1px;
+    border-radius: 5px;
+    width: 100px;
+    background-color: #E2CFEA;
+    
+}
+p {
+    padding: 2px;
+    text-align: center;
+}
+.boxfirst {
+    text-align: center;
+}
+
+.boxsecond {text-align: center;}
+
+.overlay2 {
+    padding: 5px;
+    border: solid black;
+    margin-top: 5px;
+    border-width: 1px;
+    border-radius: 5px;
+    width: 100px;
+    background-color: #E2CFEA;
+    
+}
+
+.overlay3 {
+    border: solid black;
+    position: absolute;
+    left: 435px;
+    top: 10px;
+    border-width: 1px;
+    border-radius: 5px;
+    width: 100px;
+    background-color: #E2CFEA;
+}
+body {
+    background-image: url(../img/communistmanifesto.jpg); 
+    background-repeat: no-repeat;
+}
