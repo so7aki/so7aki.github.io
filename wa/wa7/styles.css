@@ -1,0 +1,92 @@
+/* Define base styles */
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 0;
+  font: 1.2em / 1.2 Arial, Helvetica, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: flex;
+  margin: left 1px right 1px top 1px bottom 1px;
+  padding: 1px;
+}
+
+.logo {
+  font-size: 200%;
+  padding: 50px 20px;
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+.grid {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-gap: 1px;
+  padding: 1px;
+  max-width:1500px;
+  justify-items: center;
+}
+
+aside {
+  padding: 20px;
+  display: flex;
+  
+}
+
+
+
+nav {
+  background-color: #000;
+  padding: .5em;
+  position: sticky;
+  top: 0;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: .5em 1em;
+}
+
+.photos {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px;
+  padding: 1px;
+  width: 100%;
+  
+}
+
+.feature {
+  float: left;
+  margin-right: 20px;
+  width: 200px;
+}
+
+
+@media (max-width:768px) {
+  .grid {
+    grid-template-columns:  1fr 1fr; 
+    padding: 0 10px; 
+  }
+
+  .feature {
+    float: none; 
+    margin-right: 0;
+    width: 100%; 
+  }
+
+  
+}
