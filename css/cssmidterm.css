@@ -1,5 +1,6 @@
 :root{
     background-color: aquamarine;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .nav-bar{
@@ -24,12 +25,9 @@
     padding: 2em;
     display: flex;
     flex-direction: row;
-    justify-content: center, space-around;
-    gap: 2em;
-    
-    
-    
-    
+    justify-content: center;
+    justify-content: space-around;
+    gap: 2em;   
 }
 
 .performance{
