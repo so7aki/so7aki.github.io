@@ -1,0 +1,50 @@
+:root{
+    background-color: aquamarine;
+}
+
+.nav-bar{
+    background-color: lightpink;
+    padding: 2em;
+}
+
+.bio{
+    background-color: palevioletred;
+    display: flex;
+    flex-direction: row;
+    padding: 2em;
+}
+
+.bio img {
+    width: 15em;
+    height: 15em; 
+}
+
+.parent-container{
+    background-color: papayawhip;
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center, space-around;
+    gap: 2em;
+    
+    
+    
+    
+}
+
+.performance{
+    background-color: plum;
+    justify-content: space-between;
+    padding: 2em;
+    width: 0;
+    flex: 1 1 0;
+    
+    
+    
+}
+
+@media only screen and (min-width: 400px) and (max-width: 1500px) {
+    .parent-container {
+        flex-wrap: wrap;
+    }
+  }
