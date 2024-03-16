@@ -1,12 +1,23 @@
 :root{
-    background-color: aquamarine;
-    font-family: 'Courier New', Courier, monospace;
+    background-color: papayawhip;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .nav-bar{
     background-color: lightpink;
     padding: 2em;
     text-align: center;
+   
+}
+
+h1 {
+    font-size: xx-large;
+}
+h2 { 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+p {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .bio{
@@ -36,8 +47,12 @@
     padding: 2em;
     flex: 1 1 45%; /* Adjust the percentage value as needed */
     min-width: 200px; /* Set a minimum width to prevent items from becoming too narrow */
+    transition: background-color 0.3s; /* Add a smooth transition effect */
 }
 
+.performance:hover{
+    background-color: lightpink; /* Change the background color on hover */
+}
     
     
     
