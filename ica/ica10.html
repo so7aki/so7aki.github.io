@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            font-family:'Courier New', Courier, monospace;
+            letter-spacing: 1px;
+            background-color: lavender;
+        }
+    </style>
+</head>
+<body>
+    <button type="button">press me to change the color!</button>
+    <script>
+        const button = document.querySelector("button");
+    button.addEventListener('click', runFunction);
+
+    function runFunction() {
+        const color = prompt("Please enter a color (e.g., red, blue, #ff0000):");
+        document.body.style.backgroundColor = color;
+        }
+    </script>
+    
+</body>
+</html>

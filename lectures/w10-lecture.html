@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background-color: red;
+            
+        }
+    </style>
+</head>
+<body>
+    <p>Hello World!</p>
+    <button type="button">don't press me</button>
+    <script>
+        const x = 'hello!';
+        console.log(x)
+
+        const button = document.querySelector("button");
+        button.addEventListener('click', runFunction);
+
+        function runFunction() {
+            // console.log("test")
+            const name = prompt("Please enter a name");
+            button.textContent = `Player1: s{name}`;
+        }
+    </script>
+    
+</body>
+</html>
