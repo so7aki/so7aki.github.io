@@ -5,7 +5,7 @@ const btn = document.querySelector('button');
 const overlay = document.querySelector('.overlay');
 
 
-const imageFilename = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg'];
+const imageFilename = ['pic1.JPG', 'pic2.JPG', 'pic3.JPG', 'pic4.JPG', 'pic5.JPG'];
 
 
 imageFilename.forEach(filename => {
