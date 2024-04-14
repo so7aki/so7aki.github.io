@@ -1,40 +1,29 @@
-const answerBtn = document.querySelector("#js-quote-text");
-answerBtn.addEventListener('click', getQuote);
+const quoteText = document.querySelector("#js-quote-text");
+const authorText = document.querySelector("#js-author-text");
+const generateBtn = document.querySelector("#js-new-quote");
+const tweetBtn = document.querySelector("#js-tweet-button");
 
-const answerText = document.querySelector('#js-answer-text');
+const endpoint = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes';
 
-
-const endpoint = 'https://trivia.cyberwisp.com/getrandomchristmasquestion';
-
-async function getQuote() {
-   // console.log("Test")
-   try {
+generateBtn.addEventListener("click", async () => {
+    try {
         const response = await fetch(endpoint);
-        if(!response.ok) {
-            throw Error(response.statusText)
+        if (!response.ok) {
+            throw new Error(response.statusText);
         }
+        const [quote] = await response.json();
+        quoteText.textContent = `"${quote}"`;
+        authorText.textContent = `- Ron Swanson`;
+    } catch (error) {
+        console.error("Failed to fetch quote:", error);
+        quoteText.textContent = "Failed to fetch quote. Please try again.";
+        authorText.textContent = "";
+    }
+});
 
-        const json = await response.json();
-        console.log(json['question']);
-        displayQuote(json['question']);
-        console.log(json['answer']);
-        answerText.textContent = '';
-   } catch(err) {
-        console.log(err);
-        alert('Failed to fetch new quote');
-   }
+tweetBtn.addEventListener("click", () => {
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`${quoteText.textContent} ${authorText.textContent}`)}`;
+    window.open(tweetUrl, '_blank');
+});
 
-}
-
-function displayQuote(quote) {
-    const quoteText = document.querySelector('#js-quote-text');
-    quoteText.textContent = quote;
-
-}
-
-function getAnswer() {
-    answerText.textContent
-}
-
-getQuote();
 
