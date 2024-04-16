@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bad Volume Changer</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+    background-color: lavenderblush;
+  }
+  .volume-control {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+    position: absolute;
+  }
+  .volume-control button {
+    background-color: palevioletred;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    animation: moveButton 5s infinite;
+  }
+  .volume-level {
+    width: 100px;
+    height: 20px;
+    background-color: #ccc;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+  }
+  .volume-level-bar {
+    background-color: palevioletred;
+    height: 100%;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  @keyframes moveButton {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(100px, 0); }
+    50% { transform: translate(100px, 100px); }
+    75% { transform: translate(0, 100px); }
+    100% { transform: translate(0, 0); }
+  }
+</style>
+</head>
+<body>
+<div class="volume-control">
+  <div class="volume-level">
+    <div class="volume-level-bar"></div>
+  </div>
+  <button class="volume-button">Random</button>
+</div>
+<script>
+  const volumeBar = document.querySelector('.volume-level-bar');
+  const volumeButton = document.querySelector('.volume-button');
+  
+  let volumeLevel = 50;
+  updateVolumeDisplay();
+  
+  volumeButton.addEventListener('click', () => {
+    volumeLevel = Math.floor(Math.random() * 101); // Random number between 0 and 100
+    updateVolumeDisplay();
+  });
+  
+  function updateVolumeDisplay() {
+    volumeBar.style.width = `${volumeLevel}%`;
+  }
+</script>
+</body>
+</html>
