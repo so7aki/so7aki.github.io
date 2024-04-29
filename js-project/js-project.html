@@ -8,26 +8,26 @@
   body {
     font-family: Arial, sans-serif;
     text-align: center;
-    overflow: hidden;
-    background-color: lavenderblush;
+    background-color: papayawhip;
+  }
+  p {
+    color: black;
   }
   .volume-control {
     display: inline-block;
-    border: 1px solid black;
-    border-radius: 5px;
+    border: 1px solid #ccc;
     padding: 10px;
     margin: 20px;
-    position: absolute;
   }
+  
   .volume-control button {
-    background-color: palevioletred;
-    color: #fff;
+    background-color: mintcream;
+    color: black;
     border: none;
     border-radius: 3px;
     padding: 5px 10px;
     margin: 5px;
     cursor: pointer;
-    animation: moveButton 5s infinite;
   }
   .volume-level {
     width: 100px;
@@ -38,15 +38,13 @@
     position: relative;
   }
   .volume-level-bar {
-    background-color: palevioletred;
+    background-color: lightpink;
     height: 100%;
     width: 0;
     position: absolute;
     top: 0;
     left: 0;
   }
-  
-  
 </style>
 </head>
 <body>
@@ -54,18 +52,93 @@
   <div class="volume-level">
     <div class="volume-level-bar"></div>
   </div>
-  <button class="volume-button">random</button>
+  <button class="volume-button" data-action="increase" disabled>Increase</button>
+  <button class="volume-button" data-action="decrease" disabled>Decrease</button>
+  <button class="volume-button" data-action="increase">Increase</button>
+  <button class="volume-button" data-action="decrease">Decrease</button>
+  <button class="volume-button" data-action="increase">Increase</button>
+  <button class="volume-button" data-action="decrease" disabled>Decrease</button>
+  <button class="volume-button" data-action="increase">Increase</button>
+  <button class="volume-button" data-action="decrease">Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase">Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase">Increase</button>
+  <button class="volume-button" data-action="decrease">Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease" disabled>Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease">Decrease</button>
+  <button class="volume-button" data-action="increase">Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase" disabled>Increase</button>
+  <button class="volume-button" data-action="decrease">Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease" disabled>Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease">Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease">Decrease</button>
+  <button class="volume-button" data-action="increase">Increase</button>
+  <button class="volume-button" data-action="decrease" disabled>Decrease</button>
+  <button class="volume-button" data-action="increase">Increase</button>
+  <button class="volume-button" data-action="decrease">Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase"disabled>Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase">Increase</button>
+  <button class="volume-button" data-action="decrease"disabled>Decrease</button>
+  <button class="volume-button" data-action="increase" disabled>Increase</button>
+  <button class="volume-button" data-action="decrease" disabled>Decrease</button>
+  <button class="volume-button" data-action="increase" disabled>Increase</button>
+  <button class="volume-button" data-action="decrease" disabled>Decrease</button>
+  <button class="volume-button" data-action="increase" disabled>Increase</button>
+  <button class="volume-button" data-action="decrease" disabled>Decrease</button>
+  <button class="volume-button" data-action="increase" disabled>Increase</button>
+  <button class="volume-button" data-action="decrease">Decrease</button>
+  <button class="volume-button" data-action="increase" disabled>Increase</button>
+  <button class="volume-button" data-action="decrease">Decrease</button>
 </div>
 <script>
   const volumeBar = document.querySelector('.volume-level-bar');
-  const volumeButton = document.querySelector('.volume-button');
+  const volumeButtons = document.querySelectorAll('.volume-button');
   
   let volumeLevel = 50;
   updateVolumeDisplay();
   
-  volumeButton.addEventListener('click', () => {
-    volumeLevel = Math.floor(Math.random() * 101); // Random number between 0 and 100
-    updateVolumeDisplay();
+  let increaseButtonClicked = false;
+  let decreaseButtonClicked = false;
+  
+  volumeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const action = button.getAttribute('data-action');
+      if (action === 'increase' && !increaseButtonClicked) {
+        volumeLevel += 10;
+        increaseButtonClicked = true;
+        decreaseButtonClicked = false;
+      } else if (action === 'decrease' && !decreaseButtonClicked) {
+        volumeLevel -= 10;
+        decreaseButtonClicked = true;
+        increaseButtonClicked = false;
+      }
+      if (volumeLevel < 0) volumeLevel = 0;
+      if (volumeLevel > 100) volumeLevel = 100;
+      updateVolumeDisplay();
+    });
   });
   
   function updateVolumeDisplay() {
