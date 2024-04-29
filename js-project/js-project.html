@@ -478,11 +478,11 @@
     button.addEventListener('click', () => {
       const action = button.getAttribute('data-action');
       if (action === 'increase' && !increaseButtonClicked) {
-        volumeLevel += 10;
+        volumeLevel += 50;
         increaseButtonClicked = true;
         decreaseButtonClicked = false;
       } else if (action === 'decrease' && !decreaseButtonClicked) {
-        volumeLevel -= 10;
+        volumeLevel -= 50;
         decreaseButtonClicked = true;
         increaseButtonClicked = false;
       }
