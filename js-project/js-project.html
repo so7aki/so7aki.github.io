@@ -4,46 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bad Volume Changer</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: papayawhip;
-  }
-
-  .volume-control {
-    display: inline-block;
-    border: 1px solid black;
-    padding: 10px;
-    margin: 20px;
-  }
-  
-  .volume-control button {
-    background-color: mintcream;
-    color: black;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 10px;
-    margin: 5px;
-    cursor: pointer;
-  }
-  .volume-level {
-    width: 500px;
-    height: 100px;
-    background-color: #ccc;
-    display: inline-block;
-    vertical-align: middle;
-    position:relative;
-  }
-  .volume-level-bar {
-    background-color: lightpink;
-    height: 100%;
-    width: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-</style>
+<link rel="stylesheet" href="/js-project/js-project.css">
 </head>
 <body>
   <div>
@@ -461,46 +422,6 @@
   <button class="volume-button" data-action="decrease"disabled>Decrease</button>
   
 </div>
-<script>
-  const volumeBar = document.querySelector('.volume-level-bar');
-  const volumeButtons = document.querySelectorAll('.volume-button');
-  
-  let volumeLevel = 50;
-  updateVolumeDisplay();
-  
-  let increaseButtonClicked = false;
-  let decreaseButtonClicked = false;
-
-  function getRandomInt(min, max) {
-    const minCeiled = Math.ceil(min);
-    const maxFloored = Math.floor(max);
-    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
-  }
-
-  
-  volumeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const action = button.getAttribute('data-action');
-      if (action === 'increase' && !increaseButtonClicked) {
-        volumeLevel += getRandomInt(1,50);
-        console.log(volumeLevel);
-        increaseButtonClicked = true;
-        decreaseButtonClicked = false;
-      } else if (action === 'decrease' && !decreaseButtonClicked) {
-        volumeLevel -= getRandomInt(1,50);
-        console.log(volumeLevel);
-        decreaseButtonClicked = true;
-        increaseButtonClicked = false;
-      }
-      if (volumeLevel < 0) volumeLevel = 0;
-      if (volumeLevel > 100) volumeLevel = 100;
-      updateVolumeDisplay();
-    });
-  });
-  
-  function updateVolumeDisplay() {
-    volumeBar.style.width = `${volumeLevel}%`;
-  }
-</script>
+<script src="js-project.js"> </script>
 </body>
 </html>
