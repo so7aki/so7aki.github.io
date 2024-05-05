@@ -28,12 +28,12 @@
     cursor: pointer;
   }
   .volume-level {
-    width: 100px;
-    height: 20px;
+    width: 500px;
+    height: 100px;
     background-color: #ccc;
     display: inline-block;
     vertical-align: middle;
-    position: relative;
+    position:relative;
   }
   .volume-level-bar {
     background-color: lightpink;
@@ -54,6 +54,7 @@
   <div class="volume-level">
     <div class="volume-level-bar"></div>
   </div>
+  <p><br></p>
   <button class="volume-button" data-action="increase" disabled>Increase</button>
   <button class="volume-button" data-action="decrease" disabled>Decrease</button>
   <button class="volume-button" data-action="increase">Increase</button>
@@ -458,15 +459,7 @@
   <button class="volume-button" data-action="decrease"disabled>Decrease</button>
   <button class="volume-button" data-action="increase">Increase</button>
   <button class="volume-button" data-action="decrease"disabled>Decrease</button>
-  <button class="volume-button" data-action="increase" disabled>Increase</button>
-  <button class="volume-button" data-action="decrease" disabled>Decrease</button>
-  <button class="volume-button" data-action="increase" disabled>Increase</button>
-  <button class="volume-button" data-action="decrease" disabled>Decrease</button>
-  <button class="volume-button" data-action="increase" disabled>Increase</button>
-  <button class="volume-button" data-action="decrease" disabled>Decrease</button>
-  <button class="volume-button" data-action="increase" disabled>Increase</button>
-  <button class="volume-button" data-action="decrease">Decrease</button>
-  <button class="volume-button" data-action="increase">Increase</button>
+  
 </div>
 <script>
   const volumeBar = document.querySelector('.volume-level-bar');
@@ -477,16 +470,25 @@
   
   let increaseButtonClicked = false;
   let decreaseButtonClicked = false;
+
+  function getRandomInt(min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
+  }
+
   
   volumeButtons.forEach(button => {
     button.addEventListener('click', () => {
       const action = button.getAttribute('data-action');
       if (action === 'increase' && !increaseButtonClicked) {
-        volumeLevel += 50;
+        volumeLevel += getRandomInt(1,50);
+        console.log(volumeLevel);
         increaseButtonClicked = true;
         decreaseButtonClicked = false;
       } else if (action === 'decrease' && !decreaseButtonClicked) {
-        volumeLevel -= 50;
+        volumeLevel -= getRandomInt(1,50);
+        console.log(volumeLevel);
         decreaseButtonClicked = true;
         increaseButtonClicked = false;
       }
